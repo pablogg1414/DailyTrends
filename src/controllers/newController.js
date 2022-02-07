@@ -12,17 +12,15 @@ controller.list = (req, res) => {
         });
     });
 };
+controller.save = (req, res) => {
+    const data = req.body;
+    req.getConnection((err, conn) => {
+        conn.query('INSERT INTO news set ?', [data],(err, insertNew) => {
+            console.log(insertNew);
+            res.redirect('/');
+        });
+    });
+};
+
 
 module.exports = controller;
-
-// controller.save = (req, res) => {
-//     res.send('Hola tonta');
-// };
-
-// controller.edit = (req, res) => {
-//     res.send('Hola tonta');
-// };
-
-// controller.delete = (req, res) => {
-//     res.send('Hola tonta');
-// };
