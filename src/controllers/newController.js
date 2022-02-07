@@ -12,6 +12,7 @@ controller.list = (req, res) => {
         });
     });
 };
+
 controller.save = (req, res) => {
     const data = req.body;
     req.getConnection((err, conn) => {
@@ -21,6 +22,16 @@ controller.save = (req, res) => {
         });
     });
 };
+
+controller.delete = (req, res) => {
+    const numId = req.params.id;
+    req.getConnection((err, conn) => {
+        conn.query('DELETE FROM news where id = ?', [numId],(err, rows) => {
+            res.redirect('/');
+        });
+    });
+};
+
 
 
 module.exports = controller;

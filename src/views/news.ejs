@@ -15,30 +15,35 @@
         <div class="container">
             <div class="row mt-5">
                 <div class="col-md-7">
-                    <article>
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Datos</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% if(data){ %>
-                                    <% for (var i = 0; i < data.length; i++){ %>
+                    
+                    <% if(data){ %>
+                        <% for (var i = 0; i < data.length; i++){ %>
+                            <article>
+                                <table class="table table-bordered mt-5">
+                                    <thead>
                                         <tr>
-                                            <td><h1> <%= data[i].title %> </h1></td>
+                                            <th colspan="4"><h1> Noticia <%= [i + 1] %> </h1></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="4"><h2> <%= data[i].title %> </h2></td>
                                         </tr>
                                         <tr>
-                                            <td><%= data[i].newdescription %></td>
+                                            <td colspan="4"><%= data[i].newdescription %></td>
                                         </tr>
                                         <tr>
-                                            <td><%= data[i].source %></td>
+                                            <td colspan="2"><h5> <%= data[i].source %> </h5></td>
+                                            <td>
+                                                <a href="/delete/<%= data[i].id %>" class="btn btn-danger">Borrar</a>
+                                            </td>
                                         </tr>
-                                    <% } %>
-                                <% } %>
-                            </tbody>
-                        </table>
-                    </article>
+                                    </tbody>
+                                </table>
+                            </article>
+                        <%} %>
+                    <% } %>
+
                     
                 </div>
                 <div class="col-md-5">
@@ -67,7 +72,6 @@
             </div>
            
         </div> 
-
 
     </body>
 
