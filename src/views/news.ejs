@@ -12,6 +12,7 @@
         <nav class="navbar navbar-dark bg-dark">
             <a href="/" class="navbar-brand">DailyTrends</a>
         </nav>
+        
         <div class="container">
             <div class="row mt-5">
                 <div class="col-md-7">
@@ -36,6 +37,9 @@
                                             <td colspan="2"><h5> <%= data[i].source %> </h5></td>
                                             <td>
                                                 <a href="/delete/<%= data[i].id %>" class="btn btn-danger">Borrar</a>
+                                            </td>
+                                            <td>
+                                                <a href="/update/<%= data[i].id %>" class="btn btn-info">Editar</a>
                                             </td>
                                         </tr>
                                     </tbody>
