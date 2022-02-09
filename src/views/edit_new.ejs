@@ -15,6 +15,10 @@
                     <div class="card-body">
                         <form action="/update/<%= data.id %>" method="post">
                             <div class="form-group">
+                                <h5>Imagen</h5>
+                                <input type="text" name="imageName" value="<%= data.imageName %>" class="form-control">
+                            </div>
+                            <div class="form-group">
                                 <h5>Título</h5>
                                 <input type="text" name="title" value="<%= data.title %>" class="form-control">
                             </div>

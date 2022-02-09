@@ -13,6 +13,19 @@ controller.list = (req, res) => {
     });
 };
 
+controller.listNewsPapers = (req, res) => {
+    req.getConnection((err, conn) => {
+        conn.query('SELECT * FROM news', (err, news) => {
+            if (err) {
+                res.json(err);
+            }
+            res.render('newspapers', {
+                data: news
+            });
+        });
+    });
+};
+
 controller.save = (req, res) => {
     const data = req.body;
     req.getConnection((err, conn) => {
