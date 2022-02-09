@@ -31,7 +31,7 @@ controller.save = (req, res) => {
     req.getConnection((err, conn) => {
         conn.query('INSERT INTO news set ?', [data], (err, insertNew) => {
             console.log(insertNew);
-            res.redirect('/');
+            res.redirect('/mynews');
         });
     });
 };
@@ -53,7 +53,7 @@ controller.update = (req, res) => {
     const updatedNew = req.body;
     req.getConnection((err, conn) => {
         conn.query('UPDATE news set ? WHERE id = ?', [updatedNew, numId], (err, rows) => {
-            res.redirect('/');
+            res.redirect('/mynews');
         });
     });
 };
@@ -62,7 +62,7 @@ controller.delete = (req, res) => {
     const numId = req.params.id;
     req.getConnection((err, conn) => {
         conn.query('DELETE FROM news WHERE id = ?', [numId], (err, rows) => {
-            res.redirect('/');
+            res.redirect('/mynews');
         });
     });
 };
