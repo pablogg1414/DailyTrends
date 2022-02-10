@@ -9,11 +9,11 @@ CONTENTS OF THIS FILE
  REQUIREMENTS
 ------------
 
-*MySQL Database
+*MySQL Database (Command to create database in "/database/db.sql")
 
 *Nodejs installed
 
-*For webscraping need "Puppeteer module installed"
+*For webscraping need "Puppeteer module installed" (Command: npm i puppeteer)
 
 
 
