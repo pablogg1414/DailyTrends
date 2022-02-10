@@ -23,28 +23,39 @@ const puppeteer = require('puppeteer');
 
     //Sacar título
 
-    // const imagen = await page.evaluate(() => {
-    //     const element = document.querySelector('[class=photo] a img');
-    //     return imagen;
-    // });
-    // console.log(imagen+ "\n");
-
+    const titulo = await page.evaluate(() => {
+        const element = document.querySelector('[class=css-7l6h4f] h2 a');
+        if (element!=null){
+            return element.textContent;
+        }
+    });
+    if(titulo!=null){
+        console.log(titulo +"\n");
+    }
     // Sacar descripcion
 
     const descripcion = await page.evaluate(() => {
-        const element = document.querySelector('[class=css-7l6h4f] p').textContent;
-        return element;
+        const element = document.querySelector('[class=css-7l6h4f] p');
+        if (element!=null){
+            return element.textContent;
+        }
     });
-    console.log(descripcion+ "\n");
+    if(descripcion!=null){
+        console.log(descripcion +"\n");
+    }
 
     // Sacar fuente
 
     const fuente = await page.evaluate(() => {
-        const element = document.querySelector('[class=css-9voj2j]').textContent;
-        return element;
+        const element = document.querySelector('[class=css-9voj2j]');
+        if (element!=null){
+            return element.textContent;
+        }
     });
 
-    console.log(fuente);
+    if(fuente!=null){
+        console.log(fuente +"\n");
+    }
 
 
     await browser.close();

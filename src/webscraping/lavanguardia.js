@@ -24,27 +24,39 @@ const puppeteer = require('puppeteer');
     //Sacar título
 
     const titulo = await page.evaluate(() => {
-        const element = document.querySelector('[class=article-module] h2 a').textContent;
-        return element;
+        const element = document.querySelector('[class=article-module] h2 a');
+        if (element!=null){
+            return element.textContent;
+        }
     });
-    console.log(titulo+ "\n");
+    if(titulo!=null){
+        console.log(titulo +"\n");
+    }
 
     // Sacar descripcion
 
     const descripcion = await page.evaluate(() => {
-        const element = document.querySelector('[class=epigraph] p').textContent;
-        return element;
+        const element = document.querySelector('[class=epigraph] p');
+        if (element!=null){
+            return element.textContent;
+        }
     });
-    console.log(descripcion+ "\n");
+    if(descripcion!=null){
+        console.log(descripcion +"\n");
+    }
 
     // Sacar fuente
 
     const fuente = await page.evaluate(() => {
-        const element = document.querySelector('[class=article-module] div span p').textContent;
-        return element;
+        const element = document.querySelector('[class=article-module] div span p');
+        if (element!=null){
+            return element.textContent;
+        }
     });
 
-    console.log(fuente);
+    if(fuente!=null){
+        console.log(fuente +"\n");
+    }
 
 
     await browser.close();

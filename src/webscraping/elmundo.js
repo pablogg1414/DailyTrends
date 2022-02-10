@@ -19,10 +19,14 @@ const puppeteer = require('puppeteer');
     //Sacar título
 
     const titulo = await page.evaluate(() => {
-        const element = document.querySelector('[class=ue-c-cover-content__body] header a h2').textContent;
-        return element;
+        const element = document.querySelector('[class=ue-c-cover-content__body] header a h2');
+        if (element!=null){
+            return element.textContent;
+        }
     });
-    console.log(titulo+"\n");
+    if(titulo!=null){
+        console.log(titulo +"\n");
+    }
 
     // Sacar descripcion (No tiene)
 
@@ -35,11 +39,15 @@ const puppeteer = require('puppeteer');
     // Sacar fuente
 
     const fuente = await page.evaluate(() => {
-        const element = document.querySelector('[class=ue-c-cover-content__body] div ul li span').textContent;
-        return element;
+        const element = document.querySelector('[class=ue-c-cover-content__body] div ul li span');
+        if (element!=null){
+            return element.textContent;
+        }
     });
 
-    console.log(fuente);
+    if(fuente!=null){
+        console.log(fuente +"\n");
+    }
 
     await browser.close();
 
